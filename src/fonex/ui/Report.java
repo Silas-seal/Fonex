@@ -26,7 +26,7 @@ public class Report extends smx.jfx.layout.GridPane {
     
     private smx.jfx.layout.Dialog parad; private boolean rdy=false;
     
-    private String report=null,tile="",uik="";
+    private String report=null,uik="";
     
     private String thm="darkgreen", img="gif/Fonex.png", slo="DIGITAL PRO-REPORT";
     
@@ -560,7 +560,7 @@ public class Report extends smx.jfx.layout.GridPane {
         
         rdy=true; 
         
-        /*Save Transition*/
+        /*Save Transition*//*
         javafx.animation.FadeTransition fddu=new javafx.animation.FadeTransition(javafx.util.Duration.millis(3478));
         fddu.setCycleCount(1); fddu.setAutoReverse(true); fddu.setFromValue(1); fddu.setToValue(1); 
         fddu.setNode(new javafx.scene.layout.HBox()); fddu.play();
@@ -579,7 +579,7 @@ public class Report extends smx.jfx.layout.GridPane {
             //add to list
             sup.add(tile);
             
-            /*/Init
+            //Init
             java.util.List<Object> listy=new java.util.ArrayList(); 
             listy.add(cus); listy.add(sup); listy.add(map); listy.add(ch); listy.add(chh); 
             listy.add(compiler);
@@ -587,12 +587,12 @@ public class Report extends smx.jfx.layout.GridPane {
             //Writing
             fonex.api.InfoSaver svu=new fonex.api.InfoSaver();
             svu.setName("THY"); svu.setObject(listy); svu.start();
-            */
+            
             if(rdy) {
             fddu.play();}
             
         });
-            
+            */
         
         
         /*
@@ -605,10 +605,10 @@ public class Report extends smx.jfx.layout.GridPane {
             fonex.api.Supervision sp1=new fonex.api.Supervision(); sp1.setName(tfg.getText()); 
             sp1.setDescription(superv.getText()); sp1.setComments(comment.getText());
             
-            map.put(tile, sp1);
+            map.put(tfg.getText(), sp1);
             
             //add to listView
-            sup.add(tile); lvs.setItems(FXCollections.observableArrayList(sup));
+            sup.add(tfg.getText()); lvs.setItems(FXCollections.observableArrayList(sup));
             
             parad.close(); rdy=false;
             //}
@@ -694,21 +694,21 @@ public class Report extends smx.jfx.layout.GridPane {
         
         fddu.setOnFinished(ex->{
             
-            fonex.api.Supervision sp1=new fonex.api.Supervision(); sp1.setName(tfg.getText()); 
+            fonex.api.Supervision sp1=new fonex.api.Supervision(); sp1.setName(tryo); 
             sp1.setDescription(superv.getText()); sp1.setComments(comment.getText());
             
             map.remove(tryo);
             
-            map.put(tfg.getText(), sp1);
+            map.put(tryo, sp1);
             
             //add to listView
-            if(!tryo.equals(tfg.getText())) {
+            /*if(!tryo.equals(tfg.getText())) {
                 
                 sup.remove(tryo);
                 
             sup.add(tfg.getText());
             
-            }
+            }*/
 			
             /*/Init
             java.util.List<Object> listy=new java.util.ArrayList(); 
@@ -798,7 +798,7 @@ public class Report extends smx.jfx.layout.GridPane {
         
         rdy=true;
         
-        /*Save Transition*/
+        /*Save Transition*//*
         javafx.animation.FadeTransition fddu=new javafx.animation.FadeTransition(javafx.util.Duration.millis(3478));
         fddu.setCycleCount(1); fddu.setAutoReverse(true); fddu.setFromValue(1); fddu.setToValue(1); 
         fddu.setNode(new javafx.scene.layout.HBox()); fddu.play();
@@ -813,7 +813,7 @@ public class Report extends smx.jfx.layout.GridPane {
                //ADD TO LIST!
                ch.add(uik);
             
-            /*/Init
+            //Init
             java.util.List<Object> listy=new java.util.ArrayList(); 
             listy.add(cus); listy.add(sup); listy.add(map); listy.add(ch); listy.add(chh); 
             listy.add(compiler);
@@ -821,18 +821,18 @@ public class Report extends smx.jfx.layout.GridPane {
             //Writing
             fonex.api.InfoSaver svu=new fonex.api.InfoSaver();
             svu.setName("THY"); svu.setObject(listy); svu.start();
-            */
+            
             if(rdy) {
             fddu.play();}
             
 		});
-        
+        */
         /*
         Actions
         */
         cmt.setOnAction(io->{
             
-                ch.add(uik); chh.put(uik, superv.getText());
+                ch.add(tfg.getText()); chh.put(tfg.getText(), superv.getText());
                 
                 chs.setItems(FXCollections.observableArrayList(ch));
                 
@@ -911,11 +911,11 @@ public class Report extends smx.jfx.layout.GridPane {
         
         fddu.setOnFinished(ex->{
             
-            ch.remove(uio); uik=tfg.getText();
+            /*ch.remove(uio);*/ uik=tfg.getText();
                 
-            ch.add(uik); 
+            //ch.add(uik);
                    
-            chh.put(uik, superv.getText());
+            chh.put(uio, superv.getText());
 		
             
             /*/Init
@@ -940,13 +940,13 @@ public class Report extends smx.jfx.layout.GridPane {
                 
                 ch.remove(uio);
                 
-                ch.add(uik); 
+                ch.add(tfg.getText()); 
                 
                 chs.setItems(FXCollections.observableArrayList(ch));
                 
                 
             }
-                chh.put(uik, superv.getText());
+                chh.put(tfg.getText(), superv.getText());
                 
                 parad.close(); rdy=false;
            
